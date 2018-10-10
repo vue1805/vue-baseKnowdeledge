@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">
+			<p>{{name}}</p>
+			<button @click="clickEvent">ok</button>
+			<button @click="clickEvent2">ok2</button>
+		</div>
+		<script src="../../js/vue.js"></script>
+		<!--$("button").click-->
+		<script>
+			var demo = new Vue({
+				el:"#demo",
+				data:{
+					name:"ly"
+				},
+				methods:{
+					clickEvent:function(){
+						this.name = "lx"
+					},
+					clickEvent2:function(){
+						this.name = "lxxxx"
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

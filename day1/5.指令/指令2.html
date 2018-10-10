@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--<ul onclick="click()">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		$("ul").click(function(e){
+			e.target
+		})-->
+		<!--View-->
+		<!--$().on("xxx",function(){})-->
+		<div id="demo">
+			<p>{{name}}</p>
+			<!--onclick-->
+			<button @click="test($event)">OK</button>
+			<button v-on:click="test">OK</button>
+			<!--onchange-->
+			<!--<button v-on:change="test">OK</button>-->
+			<!--onkeyup-->
+			<!--<button v-on:keyup="test">OK</button>-->
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			//Model
+			new Vue({
+				el:"#demo",
+				data:{
+					name:"lx"
+				},
+				methods:{
+					test:function(e){
+						console.log(e)
+						e.target.style.color = "red"
+						this.name = "nnn"
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

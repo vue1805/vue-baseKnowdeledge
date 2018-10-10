@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">
+			<p name="attr">{{attr}}</p>
+			<p :name="attr">{{attr}}</p>
+		</div>
+		
+		<script src="../../js/vue.js"></script>
+		<script>
+			//如果在属性值前面加了冒号，那就会去data里面找该变量的值去替换
+			new Vue({
+				el:"#demo",
+				data:{
+					attr:"abc"
+				}
+			})
+		</script>
+	</body>
+</html>

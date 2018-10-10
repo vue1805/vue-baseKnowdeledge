@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="demo">
+			<p>{{str}}</p>
+			<p>{{arr[1]}}</p>
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			//1.第一步new Vue  实例化第一个Vue的应用
+			//2.往Vue里面传入参数，一定是一个对象 作用域
+			//3.在data里面可以存放数据，配合符号{{}}把data的属性值放进去，就可以展示数据了
+			
+			//$("#demo").find("p").eq(0).text("xxx")
+			new Vue({
+				el: "#demo", //element
+				data: { //数据
+					str: "lyyyyyy",
+					arr: [1, 2, 3],
+					skill: {
+						fe: ['js', 'css', 'html'],
+						be: ['php', 'node']
+					},
+					num: 1,
+					obj: null
+					//函数不能放
+				} //数据
+			})
+		</script>
+	</body>
+
+</html>

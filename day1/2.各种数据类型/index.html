@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--视图层-->
+		<div id="app">
+			<p style="color:red">1.字符串</p>
+			<p>{{str}}</p>
+			
+			<p style="color:red">2.数组</p>
+			<p>{{arr}}{{arr[1]}}{{arr[0]}}</p>
+			
+			<p style="color:red">3.对象</p>
+			<p>{{skill}}</p>
+			<p>前端：{{skill.fe[0]}},{{skill.fe[1]}}</p>
+			<p>前端：{{skill.fe[0]}},{{skill.fe[1]}}</p>
+			
+			<p style="color:red">4.数字</p>
+			<p>{{num}}+1</p>
+			<p>{{num+1}}</p>
+			<p>{{num+str}}</p>
+			<p>{{num}}{{str}}</p>
+			
+			
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			
+			new Vue({
+				el: "#app",
+				data: {//数据层
+					str: "lyyyyyy",
+					arr: [1, 2, 3],
+					skill: {
+						fe: ['js', 'css', 'html'],
+						be: ['php', 'node']
+					},
+					num: 1,
+					obj: null
+				}
+			})
+		</script>
+	</body>
+
+</html>

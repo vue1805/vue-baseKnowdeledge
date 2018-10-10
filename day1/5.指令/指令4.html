@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--view-->
+		<div id="demo">
+			<!--$().val()-->
+			<input v-model="username" />
+			<input v-model="password" />
+			<button @click="login">登录</button>
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			//model
+			new Vue({
+				el:"#demo",
+				data:{
+					username:"",
+					password:""
+				},
+				//v-model 把视图的值带回数据层
+				methods:{
+					login:function(){
+						console.log(this.username,this.password)
+					}
+				}
+			})
+		</script>
+		
+		
+		<!---->
+	</body>
+</html>

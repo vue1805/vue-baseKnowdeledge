@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="demo">
+			<!--$().text()-->
+			<p style="color: red;">1.v-text</p>
+			<p v-text="name"></p>
+			<p>{{name}}</p>
+			<!--$().html()-->
+			<p style="color: red;">2.v-text</p>
+			<p v-html="html"></p>
+
+			<!--$().show()-->
+			<p style="color: red;">3.v-show</p>
+			<p v-show="bool">显示或者隐藏</p>
+			<button @click="toggle">切换</button>
+
+			<!--$().append() $().remove()-->
+			<p style="color: red;">4.v-if</p>
+			<p v-if="bool">显示或者隐藏</p>
+			<p v-if="9>8-1">显示或者隐藏</p>
+			<button @click="toggle">切换</button>
+
+			<!--$().hide()-->
+			<p style="color: red;">5.v-else和v-else-if</p>
+			<p v-if="1==2">第一条</p>
+			<p v-else-if="2==2">第二条</p>
+			<p v-else>第三条</p>
+
+			<!--v-for放在那里那个标签（标签块）就会重复-->
+			<p style="color: red;">6.v-for 非常厉害，非常有用！！！</p>
+			<select>
+				<option v-for="a in arr" v-text="a.name" :value="a.age"></option>
+			</select>
+
+			<table>
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>年龄</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="a in arr">
+						<th v-text="a.name"></th>
+						<th v-text="a.age"></th>
+					</tr>
+				</tbody>
+			</table>
+			<ul>
+				<li v-for="a in arr" v-text="'姓名：'+a.name+' 年龄：'+a.age"></li>
+			</ul>
+			
+			<ul>
+				<li v-for="n in news">
+					<p v-text="n.title"></p>
+					<p v-text="n.description"></p>
+					<img @click="showImgSrc(i)" v-if="n.img.length>0" v-for="i in n.img" :src="i" />
+				</li>
+			</ul>
+			<button @click="loadMore">查看更多</button>
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			new Vue({
+				el: "#demo",
+				data: {
+					name: "lx",
+					html: "<div>123<span style='color:green'>456</span></div>",
+					bool: true,
+					arr: [{
+						name: 'ly',
+						age: 18
+					}, {
+						name: 'lx',
+						age: 20
+					}, {
+						name: 'lt',
+						age: 13
+					}],
+					news: [{
+						title: "标题1",
+						description: "新闻内容1",
+						img: ["https://p3.pstatp.com/list/pgc-image/1539127334514722204b440"]
+					},{
+						title: "标题2",
+						description: "新闻内容2",
+						img: ["https://p3.pstatp.com/list/web.business.image/201809045d0d4af5c109bfd14a84a779","https://p3.pstatp.com/list/web.business.image/201808295d0dbe6e8e9feacf457b995d"],
+					},{
+						title: "标题3",
+						description: "新闻内容3",
+						img: [],
+					}]
+				},
+				methods: {
+					toggle: function() {
+						this.bool = !this.bool
+					},
+					loadMore: function() {
+						this.arr.push({
+							name: "lemon",
+							age: 4
+						})
+					},
+					showImgSrc:function(src){
+						console.log(src)
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>
+
+<!--
+	css
+	html(content)
+	js
+-->

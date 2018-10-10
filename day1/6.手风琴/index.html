@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js手风琴</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			ul {
+				list-style: none;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			body {
+				background: #333;
+			}
+			
+			.box {
+				width: 400px;
+				height: auto;
+				margin: 20px auto;
+			}
+			
+			.box ul li:nth-child(2),
+			.box ul li:nth-child(3),
+			.box ul li:nth-child(4) {
+				margin-top: 5px;
+			}
+			
+			.box ul li .btn {
+				display: block;
+				line-height: 36px;
+				text-indent: 10px;
+				background: white;
+				border-radius: 5px;
+				color: #333;
+			}
+			
+			.box ul li .active {
+				background: red;
+				color: white;
+			}
+			
+			.box ul li .menu {
+				background: white;
+				border-radius: 5px;
+				margin-top: 5px;
+				overflow: hidden;
+				transition: all 0.5s;
+			}
+			
+			.box ul li .menu p {
+				padding: 10px;
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="demo" class="box">
+			<ul>
+				<li v-for="(c,index) in cities">
+					<a :class="{active:c.isShow}" @click="toggle(index)" class="btn" v-text="c.title"></a>
+					<div v-show="c.isShow" class="menu">
+						<p v-text="c.detail"></p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			new Vue({
+				el: "#demo",
+				data: {
+					page: 0,
+					cities: [{
+						isShow: false,
+						title: "广州",
+						detail: "广州是国家历史文化名城，从秦朝开始，广州一直是郡治、州治、府治的行政中心；一直是华南地区的政治、军事、经济、文化和科教中心，是岭南文化的发源地和兴盛地。广州从东汉时期起成为海上丝绸之路的主港，唐宋时期成为中国第一大港，是世界著名的东方港市；明清时期是中国唯一的对外贸易大港，是世界上唯一2000多年长盛不衰的大港",
+					}, {
+						isShow: false,
+						title: "深圳",
+						detail: "自秦朝，即为广东地。秦皇统一中国后，于公元前214年在岭南设置了南海、桂林、象郡三郡，谪徙秦国人50万人开发。时属南海郡的深圳，便融入了秦代的中原文化，后为南越国地。大汉帝国、东汉属于交州（管辖广东、广西、越南大部）南海郡。西汉设郡前属越地、南粤地（南越地）。"
+					}, {
+						isShow: false,
+						title: "珠海",
+						detail: "1953年5月1日，珠海县正式成立。是年5月25日，经省人民政府批准，确定珠海县的区、乡名称，数量及范围，共有4个区、44个乡。一区即唐家区，下辖唐家、鸡山、淇澳、桂山、内外伶仃、万山、东澳、担杆、庙湾；二区即前山区，下辖前山、山场、小将军、香洲、白石、兰埔、北岭、吉大、南屏、北山、湾仔、横琴、洪湾、广昌；三区即三灶区，下辖鱼月、中心、海澄、鱼林、大林、小林、南水、北水、高栏等，四区即万顷沙区。珠海县所辖范围，大致与今天珠海市（不含斗门区）相似，但多一个万顷沙区（今属广州市番禺区）。",
+					}, {
+						isShow: false,
+						title: "澳门",
+						detail: "澳门地区的考古发掘，特别是1995年在路环岛黑沙的沙丘中发掘出土的彩陶以及玉器，经鉴定，证实是四、五千年前的珍贵古文物，与其同时出土的石斧等石器，同近几年来在距离澳门不远的珠海地区出土的同类文物，属于同一文化系统，说明早在新石器时代，中华民族的祖先，已在澳门一带的地区劳动、生息"
+					}]
+				},
+				methods: {
+					toggle: function(index) {
+						this.cities[index].isShow = !this.cities[index].isShow
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>
