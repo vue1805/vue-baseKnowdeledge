@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--
+			原文本（旧）
+			wscat corrine wscinest corrine
+			输入框输w,w是变红的，计算之后产生
+			新文本（新）
+			<span style="color:red">w</span>scat corrine <span style="color:red">w</span>scinest corrine
+		-->
+		<div id="demo">
+			<input v-model="search" />
+			<div v-html="computedHtml"></div>
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			new Vue({
+				el:"#demo",
+				data:{
+					search:"",
+					html:"wscat corrine wscinest corrine",
+				},
+				computed:{
+					computedHtml:function(){
+						console.log(this.html.split(this.search));
+						var arr = this.html.split(this.search);
+						var html = arr.join("<span style='color:red'>"+this.search+"</span>");
+						return html
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

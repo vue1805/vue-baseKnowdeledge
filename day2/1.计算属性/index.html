@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">
+			<p v-text="name"></p>
+			<p>{{named}}</p>
+			<p>{{naming}}</p>
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			new Vue({
+				el:"#demo",
+				data:{
+					name:"ly"
+				},
+				//methods
+				computed:{
+					//被计算出来的数据
+					named:function(){
+						return this.name+"ed"
+					},
+					naming:function(){
+						return this.name+"ing"
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

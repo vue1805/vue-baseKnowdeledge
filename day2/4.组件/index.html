@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="demo">
+			<xheader></xheader>
+			<xheader></xheader>
+			<xheader></xheader>
+			<xcontent></xcontent>
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			Vue.component('xheader', {
+				data: function() {
+					return {
+						name: "lll"
+					}
+				},
+				//methods
+				//computed
+				template: '<div><input v-model="name" />{{name}}头部组件</div>'
+			})
+			Vue.component('xcontent', {
+				data: function() {
+					return {
+						count: 0
+					}
+				},
+				template: '<div>内容组件</div>'
+			})
+			//最大的组件，所有组件的容器
+			var demo = new Vue({
+				el: "#demo",
+				data: {
+
+				},
+			})
+		</script>
+	</body>
+
+</html>

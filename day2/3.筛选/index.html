@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="demo">
+			<input v-model="user" />
+			<ul>
+				<li v-for="a in computedArrs" v-text="a.user"></li>
+			</ul>
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			new Vue({
+				el: "#demo",
+				data: {
+					user:"",
+					arrs: [{
+						'user': 'wscats',
+						'age': 18,
+					}, {
+						'user': 'oaoafly',
+						'age': 16,
+					}, {
+						'user': 'windiest',
+						'age': 14,
+					}, {
+						'user': 'wsest',
+						'age': 99,
+					}]
+				},
+				computed:{
+					computedArrs:function(){
+						//var self = this;
+						var newArr = this.arrs.filter(function(a){
+							console.log(a.user.indexOf(this.user)!=-1)
+							//真
+							console.log(a.user,this.user)
+							return a.user.indexOf(this.user)!=-1
+							//return 
+						}.bind(this))
+						console.log(newArr);
+						return newArr
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>
