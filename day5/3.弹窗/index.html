@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title></title>
+		<link rel="stylesheet" href="../../css/weui.css" />
+		<link rel="stylesheet" href="../../css/animate.css" />
+	</head>
+
+	<body>
+		<style>
+			.bounce-enter-active {
+				animation: scale .5s;
+			}
+			
+			.bounce-leave-active {
+				animation: scale .5s reverse;
+			}
+			
+			@keyframes scale {
+				from {
+					transform: translateY(311px);
+				}
+				to {
+					transform: translateY(0);
+				}
+			}
+		</style>
+		<div id="demo">
+			<button @click="showActionSheet">弹窗</button>
+			<transition name="bounce">
+				<div v-show="bool" class="weui-actionsheet weui-actionsheet_toggle" id="iosActionsheet">
+					<div class="weui-actionsheet__title">
+						<p class="weui-actionsheet__title-text">这是一个标题，可以为一行或者两行。</p>
+					</div>
+					<div class="weui-actionsheet__menu">
+						<div class="weui-actionsheet__cell">示例菜单</div>
+						<div class="weui-actionsheet__cell">示例菜单</div>
+						<div class="weui-actionsheet__cell">示例菜单</div>
+						<div class="weui-actionsheet__cell">示例菜单</div>
+					</div>
+					<div class="weui-actionsheet__action">
+						<div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
+					</div>
+				</div>
+			</transition>
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			new Vue({
+				el: "#demo",
+				data: {
+					bool: false,
+				},
+				methods: {
+					showActionSheet: function() {
+						this.bool = !this.bool;
+
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

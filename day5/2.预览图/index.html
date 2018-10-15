@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title></title>
+		<link rel="stylesheet" href="../../css/weui.css" />
+		<link rel="stylesheet" href="../../css/animate.css" />
+	</head>
+
+	<body>
+		<style>
+			.bounce-enter-active {
+				animation: scale .5s;
+			}
+			
+			.bounce-leave-active {
+				animation: scale .5s reverse;
+			}
+			
+			@keyframes scale{
+				from{
+					transform: scale(0);
+				}
+				to{
+					transform: scale(1);
+				}
+			}
+		</style>
+		<div id="demo">
+			<img @click="showGallery" :src="src" />
+			<transition name="bounce">
+				<div class="weui-gallery" v-show="bool">
+					<span class="weui-gallery__img" :style="{backgroundImage: 'url('+src+')'}"></span>
+					<div class="weui-gallery__opr">
+						<a @click="showGallery" href="javascript:" class="weui-gallery__del">
+							<i class="weui-icon-delete weui-icon_gallery-delete"></i>
+						</a>
+					</div>
+				</div>
+			</transition>
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			new Vue({
+				el: "#demo",
+				data: {
+					bool: false,
+					src: "../../../node/node/day1/1.简单使用/node与浏览器的关系.bmp"
+				},
+				methods: {
+					showGallery: function() {
+						this.bool = !this.bool;
+
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

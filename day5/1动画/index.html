@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../css/animate.css" />
+	</head>
+
+	<body>
+		<style>
+			.bounce-enter-active {
+				animation: hinge 3s;
+			}
+			
+			.bounce-leave-active {
+				animation: hinge 3s reverse;
+			}
+			
+			/*@keyframes bounce-in {
+				0% {
+					transform: scale(0);
+				}
+				50% {
+					transform: scale(1.5);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}*/
+		</style>
+		<div id="demo">
+			<button @click="toggle">切换</button>
+			<transition name="bounce">
+				<p v-show="bool">显示或者隐藏</p>
+			</transition>
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			new Vue({
+				el: "#demo",
+				data: {
+					bool: true
+				},
+				methods: {
+					toggle: function() {
+						this.bool = !this.bool
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

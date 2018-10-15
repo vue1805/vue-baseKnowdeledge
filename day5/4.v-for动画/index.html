@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../css/weui.css" />
+		<link rel="stylesheet" href="../../css/animate.css" />
+	</head>
+
+	<body>
+		<style>
+			.list-complete-item {
+				transition: all 10s;
+				display: inline-block;
+				margin-right: 10px;
+			}
+			
+			.list-complete-enter,
+			.list-complete-leave-to
+			/* .list-complete-leave-active for below version 2.1.8 */
+			
+			{
+				opacity: 0;
+				transform: translateY(30px);
+			}
+			
+			.list-complete-leave-active {
+				position: absolute;
+			}
+		</style>
+		<div id="demo">
+			<button @click="add">增加</button>
+			<transition-group name="list-complete" tag="p">
+				<span class="list-complete-item" :key="index" v-for="(a,index) in arr">{{a}}</span>
+			</transition-group>
+		</div>
+		<script src="../../js/vue.js"></script>
+		<script>
+			new Vue({
+				el: "#demo",
+				data: {
+					arr: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+				},
+				methods:{
+					add:function(){
+						this.arr.push(10)
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>
