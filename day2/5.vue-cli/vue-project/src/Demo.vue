@@ -4,6 +4,7 @@
 		<xsearch />
 		<xpanel />
 		<xfooter />
+		<xgallery />
 	</div>
 </template>
 
@@ -12,6 +13,7 @@
 	import xsearch from './components/xsearch.vue';
 	import xpanel from './components/xpanel.vue';
 	import xfooter from './components/xfooter.vue';
+	import xgallery from './components/xgallery.vue';
 	//var xheader = require('./components/xheader.vue');
 	export default {
 		data() {
@@ -23,7 +25,8 @@
 			xheader,
 			xsearch,
 			xpanel,
-			xfooter
+			xfooter,
+			xgallery
 		}
 	}
 </script>

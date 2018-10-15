@@ -14,3 +14,10 @@ vue里面。动画一般使用在两个指令上
 ```html
 <transition name="类的名字"></transition>
 ```
+
+
+# vuex
+
+```
+
+```

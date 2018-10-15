@@ -5,7 +5,35 @@ import $ from 'jquery'
 window.$ = $;
 import "weui";
 Vue.config.productionTip = false
-
+//引入状态管理
+import Vuex from 'vuex'
+Vue.use(Vuex)
+const store = new Vuex.Store({
+	//状态
+	state: {
+		searchText: "",
+		isShowGallery:false,
+		galleryUrl:""
+	},
+	//
+	mutations: {
+		changeSearchText(state, data) {
+			state.searchText = data;
+		}
+	},
+	actions: {
+		setSearchText(context, data) {
+			context.commit('changeSearchText', data)
+		},
+	},
+	getters:{
+		getSearchText(state){
+			return state.searchText
+		}
+	}
+	//actions---(commit)--->mutations----->state
+})
 new Vue({
-  render: h => h(Demo)
+	store,
+	render: h => h(Demo)
 }).$mount('#app')
